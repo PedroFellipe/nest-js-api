@@ -12,28 +12,33 @@ export class TaskController {
     ) {}
 
     @Get('/')
-    findAll(): Promise<Task[]> {
+    findAll(): Promise<Task[]> 
+    {
         return this.taskService.findAll();
     }
 
     @Post('/')
-    store(@Body() task: InsertTaskDto): Promise<Task> {
+    store(@Body() task: InsertTaskDto): Promise<Task> 
+    {
         return this.taskService.store(task)
     }
 
     @Put('/:id')
-    update(@Param('id') id: number, @Body() task: UpdateTaskDto): Promise<Task> {
+    update(@Param('id') id: number, @Body() task: UpdateTaskDto): Promise<Task> 
+    {
         return this.taskService.update(id, task)
     }
 
     @Get('/:id') 
-    findOne(@Param('id') id: number): Promise<Task> {
+    findOne(@Param('id') id: number): Promise<Task> 
+    {
         return this.taskService.findOne(id);
     }
     
     @Delete('/:id')
     @HttpCode(204)
-    delete(@Param('id') id: number): void {
+    delete(@Param('id') id: number): void 
+    {
         this.taskService.delete(id);
     }
 }

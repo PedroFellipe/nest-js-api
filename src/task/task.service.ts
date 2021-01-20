@@ -13,21 +13,24 @@ export class TaskService
         private readonly taskRepository: Repository<Task>,
     ) {}
 
-    async findAll(): Promise<Task[]> {
+    async findAll(): Promise<Task[]> 
+    {
         return await this.taskRepository.find();
     }
     
-    async findOne(id: number): Promise<Task> {
+    async findOne(id: number): Promise<Task> 
+    {
         const task = await this.taskRepository.findOne(id);
 
         if (!task) {
             throw new NotFoundException;
         }
 
-        return task 
+        return task ;
     }
 
-    async store(task: InsertTaskDto): Promise<Task> {
+    async store(task: InsertTaskDto): Promise<Task> 
+    {
         
         return await this.taskRepository.save({
             title: task.title, 
@@ -35,7 +38,8 @@ export class TaskService
         });
     }
 
-    async update(id: number, taskBody: UpdateTaskDto): Promise<Task> {
+    async update(id: number, taskBody: UpdateTaskDto): Promise<Task> 
+    {
         const task = await this.taskRepository.findOne(id);
         
         if (!task) {
@@ -49,7 +53,8 @@ export class TaskService
         return this.taskRepository.save(task);
     }
 
-    async delete(id: number): Promise<void> {
+    async delete(id: number): Promise<void> 
+    {
         await this.taskRepository.delete(id);
     }
 }
