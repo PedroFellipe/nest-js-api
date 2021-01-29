@@ -18,7 +18,7 @@ After cloning the project, access the folder and run the following command to in
 
     npm install
 
-Then, use docker-composer to run the project
+Then, use docker-compose to run the project
 
     docker-compose up
 
