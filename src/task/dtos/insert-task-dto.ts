@@ -1,4 +1,4 @@
 export class InsertTaskDto {
-    title: String;
-    description: String;
+  title: string;
+  description: string;
 }

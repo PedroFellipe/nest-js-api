@@ -6,9 +6,9 @@ services:
     command: yarn start:dev
     ports:
       - "8080:3000"
-    volumes: 
+    volumes:
       - .:/usr/app
-    depends_on: 
+    depends_on:
       - db
   db:
     image: mysql:5.7
@@ -21,17 +21,16 @@ services:
       - MYSQL_ROOT_PASSWORD=nest
       - MYSQL_DATABASE=nest
       - TZ=America/Belem
-
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:latest
-  #   container_name: nest-phpmyadmin
-  #   links:
-  #     - db
-  #   ports:
-  #     - "8081:80"
-  #   environment:
-  #     - PMA_HOST=db
-  #     - PMA_PORT=3306
-  #     - TZ=America/Belem
-  #   depends_on: 
-  #     - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: nest-phpmyadmin
+    links:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+      - TZ=America/Belem
+    depends_on:
+      - db
